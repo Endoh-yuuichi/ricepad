@@ -1,0 +1,37 @@
+<div class="topic-new-wrapper" >
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h1 class="text-center">レシピ投稿</h1>
+        <%= form_for @topic do |f| %>
+          <div class="form-group">
+            <%= f.label :イメージ %>
+            <%= f.file_field :image%>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :タイトル %>
+            <%= f.text_area :description, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :カテゴリ %>
+            <%= f.text_area :category, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :材料 %>
+            <%= f.text_area :material, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :作り方 %>
+            <%= f.text_area :recipe, class: 'form-control' %>
+          </div>
+          <% if logged_in? %>
+            <%= f.submit '編集', class: 'btn btn-black btn-block' %>
+
+          <% end %>
+        <% end %>
+      </div>
+      <p><%= Date.today %></p>
+    </div>
+  </div>
+</div>
